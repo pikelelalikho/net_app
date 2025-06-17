@@ -1,122 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Likho Pikelela | Cybersecurity & Developer Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="chatbot.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Likho Pikelela Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="chatbot.css">
 </head>
-
 <body>
-  <header class="navbar">
-    <div class="navbar-left">
-      <img src="Docs&image/profile.png" alt="Profile Image" id="profileImg" style="cursor:pointer;" />
-      <h1>Likho Pikelela</h1>
+  <header>
+    <div class="navbar">
+      <div class="navbar-left">
+        <img src="Docs&image/profile.png" alt="Profile Image" id="profileImg" style="cursor:pointer;">
+        <h1>Likho Pikelela</h1>
+      </div>
+      <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
+      <nav>
+        <ul id="menu">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education & Certificates</a></li>
+          <li><a href="#projects">Projects & Experience</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+          <li><a href="chatpage.html">Chat_With_CollabMate</a></li>
+        </ul>
+      </nav>
     </div>
-    <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
-    <nav>
-      <ul id="menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="chatpage.html">Chat With CollabMate</a></li>
-      </ul>
-    </nav>
   </header>
+  <!-- Image Zoom Overlay -->
+  <div id="imageZoomOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
+    <span style="position:absolute; top:20px; right:30px; font-size:30px; color:white; cursor:pointer;" onclick="document.getElementById('imageZoomOverlay').style.display='none'">&times;</span>
+    <img src="Docs&image/profile.png" style="max-width:90%; max-height:90%;">
+  </div>
+  <!-- Popup Message -->
+  <div id="chatPopup" style="display:none; position:fixed; bottom:20px; right:20px; background:#333; color:#fff; padding:15px 20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.5); z-index:10000; max-width: 280px; font-family: sans-serif;">
+  <span style="position:absolute; top:5px; right:10px; cursor:pointer; font-size:18px;" onclick="document.getElementById('chatPopup').style.display='none'">&times;</span>
+  Let’s chat! You can ask me anything <strong>CLICK</strong> on the corner to Chat_With_CollabMate.
+</div>
 
-  <div id="imageZoomOverlay">
-    <span onclick="document.getElementById('imageZoomOverlay').style.display='none'">&times;</span>
-    <img src="Docs&image/profile.png" alt="Zoomed Profile" />
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <p>I’m Likho Pikelela — a passionate cybersecurity learner, aspiring ethical hacker, and creative developer. I combine technical skills with an entrepreneurial mindset, working on projects in AI, design, and web development, while pursuing my dream of working in the cybersecurity field and eventually starting my own tech business.</p>
   </div>
 
-  <div id="chatPopup">
-    <span onclick="document.getElementById('chatPopup').style.display='none'">&times;</span>
-    Let’s chat! Click the icon to talk to <strong>CollabMate</strong>.
+  <div class="section" id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Cybersecurity Fundamentals & Digital Forensics</li>
+      <li>HTML, CSS, JavaScript, Python</li>
+      <li>UI/UX Design (Figma)</li>
+      <li>Chatbot Development</li>
+      <li>Teachable Machine Image Classification</li>
+      <li>Graphic Design & Branding Basics</li>
+    </ul>
   </div>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m Likho Pikelela — a passionate cybersecurity learner, aspiring ethical hacker, and creative developer. I combine technical skills with an entrepreneurial mindset to build AI, web, and security projects.</p>
-    </section>
+  <div class="section" id="education">
+    <h2>Education & Certificates</h2>
+    <div class="certificate">
+      <p>CAPACITI AI Bootcamp – AI Basics, Ethics, Projects (2025)</p>
+    </div>
+    <div class="certificate">
+      <p>Cybersecurity Fundamentals & Toolbox Training</p>
+    </div>
+    <div class="certificate">
+      <p>Incident Response & Digital Forensics Internship (Cybersecurity Center)</p>
+    </div>
+  </div>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Cybersecurity & Digital Forensics</li>
-        <li>HTML, CSS, JavaScript, Python</li>
-        <li>UI/UX Design (Figma)</li>
-        <li>Chatbot Development</li>
-        <li>Machine Learning (Teachable Machine)</li>
-        <li>Graphic Design & Branding</li>
-      </ul>
-    </section>
+  <div class="section" id="projects">
+    <h2>Projects & Experience</h2>
+    <div class="project">
+      <h3>AI Basic Concepts Chatbot</h3>
+      <p>Explains AI/ML/Deep Learning in simple language for beginners. Built with HTML, JavaScript, and animations.</p>
+      <p><a href="https://skambi441.github.io/ChatBot/" target="_blank">Visit Chatbot</a></p>
+    </div>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>A professional, fully custom-coded portfolio showcasing my journey, skills, and projects.</p>
+      <p><a href="https://pikelelalikho.github.io/net_app/" target="_blank">Visit Portfolio</a></p>
+    </div>
+    <div class="project">
+      <h3>Figma Prototype (Image Upload Interface)</h3>
+      <p>A UI design inspired by postimages.org, allowing image uploads with custom styling and layout.</p>
+      <p><a href="https://www.figma.com/proto/tyvn9R02qrzp3ptaie2meb/TechAid-Detect?node-id=26-74&starting-point-node-id=26%3A74" target="_blank">View Figma Prototype</a></p>
+    </div>
+    <div class="project">
+      <h3>Teachable Machine – Cup Detector</h3>
+      <p>Image classification model that identifies cups and ignores people. Trained using Google’s Teachable Machine.</p>
+      <p><a href="https://pikelelalikho.github.io/teachable_machine/" target="_blank">Test the Model</a></p>
+    </div>
+    <div class="project">
+      <h3>Content Generator Tool</h3>
+      <p>Ongoing: A tool that generates HTML templates, CSS styles, chatbot scripts, and Python code based on user input.</p>
+      <p><a href="https://likhopikelela.github.io/Code-Generator/" target="_blank">Try Content Generator</a></p>
+    </div>
+    <div class="project">
+      <h3>Image Generator Tool</h3>
+      <p>Generates visual content from prompts or styles, offering creativity for branding or social media.</p>
+      <p><a href="https://likhopikelela.github.io/Image-Generator/" target="_blank">Try Image Generator</a></p>
+    </div>
+  </div>
 
-    <section id="education">
-      <h2>Education & Certificates</h2>
-      <ul>
-        <li>CAPACITI AI Bootcamp – AI Basics, Ethics, Projects (2025)</li>
-        <li>Cybersecurity Fundamentals & Toolbox Training</li>
-        <li>Internship: Incident Response & Digital Forensics</li>
-      </ul>
-    </section>
+  <div class="resume-section">
+    <h2>View or Download My Resume</h2>
+    <a href="Docs&image/resume.pdf" download>Download Resume (PDF)</a>
+  </div>
 
-    <section id="projects">
-      <h2>Projects & Experience</h2>
-      <div class="project">
-        <h3>AI Concepts Chatbot</h3>
-        <p>Explains AI/ML/Deep Learning in simple terms using HTML, JS, and animations.</p>
-        <a href="https://skambi441.github.io/ChatBot/" target="_blank">Visit Chatbot</a>
-      </div>
-      <div class="project">
-        <h3>Portfolio Website</h3>
-        <p>Custom-coded website showing my profile and work.</p>
-        <a href="https://pikelelalikho.github.io/net_app/" target="_blank">Visit Portfolio</a>
-      </div>
-      <div class="project">
-        <h3>Image Upload UI Prototype</h3>
-        <p>Figma design for an image upload app inspired by postimages.org.</p>
-        <a href="https://www.figma.com/proto/tyvn9R02qrzp3ptaie2meb/TechAid-Detect?node-id=26-74&starting-point-node-id=26%3A74" target="_blank">View Figma</a>
-      </div>
-      <div class="project">
-        <h3>Cup Detector – Teachable Machine</h3>
-        <p>ML model trained to detect cups and ignore people.</p>
-        <a href="https://pikelelalikho.github.io/teachable_machine/" target="_blank">Test Model</a>
-      </div>
-      <div class="project">
-        <h3>Content Generator</h3>
-        <p>Generates code templates in HTML, CSS, JS, and Python based on user input.</p>
-        <a href="https://likhopikelela.github.io/Code-Generator/" target="_blank">Try Tool</a>
-      </div>
-      <div class="project">
-        <h3>Image Generator Tool</h3>
-        <p>Generates visual assets from text prompts for creativity and design.</p>
-        <a href="https://likhopikelela.github.io/Image-Generator/" target="_blank">Try Image Generator</a>
-      </div>
-    </section>
+  <div class="section" id="contact">
+    <h2>Contact Me</h2>
+    <form action="mailto:pikelelalikho@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+    <script>
+    // Zoom on Profile Image
+    document.getElementById('profileImg').addEventListener('click', function() {
+      document.getElementById('imageZoomOverlay').style.display = 'flex';
+    });
 
-    <section class="resume-section">
-      <h2>Resume</h2>
-      <a href="Docs&image/resume.pdf" download>Download Resume (PDF)</a>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <form action="mailto:pikelelalikho@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
+    // Timed Popup after 5 seconds
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById('chatPopup').style.display = 'block';
+      }, 5000);
+    };
+  </script>
+        <script src="script.js"></script>
+        <script src="chatbot.js"></script>
+        <footer>
+        <footer>
     <p>&copy; 2025 Likho Pikelela. All rights reserved.</p>
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/likho-pikelela-700495200/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -124,20 +141,5 @@
       <a href="https://github.com/pikelelalikho" target="_blank"><i class="fab fa-github"></i></a>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('profileImg').addEventListener('click', function () {
-      document.getElementById('imageZoomOverlay').style.display = 'flex';
-    });
-
-    window.onload = function () {
-      setTimeout(() => {
-        document.getElementById('chatPopup').style.display = 'block';
-      }, 5000);
-    };
-  </script>
-  <script src="script.js"></script>
-  <script src="chatbot.js"></script>
 </body>
-
 </html>
