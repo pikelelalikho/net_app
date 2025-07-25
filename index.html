@@ -10,21 +10,21 @@
 <body>
 <header>
   <div class="navbar">
-    <div class="navbar-left">
-      <img src="Docs&image/profile.png" alt="Profile Image" id="profileImg">
-      <h1>Likho Pikelela</h1>
-    </div>
-    <i class="fas fa-bars menu-icon" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu" role="button"></i>
-    <nav aria-label="Main navigation">
-      <ul id="menu">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education & Certificates</a></li>
-        <li><a href="#projects">Projects & Experience</a></li>
-        <li><a href="#contact">Contact Me</a></li>
-      </ul>
-    </nav>
+  <div class="profile-img-container">
+    <img src="Docs&image/profile.png" alt="Profile Image" id="profileImg" class="profile-image">
+    <h1>Likho Pikelela</h1>
   </div>
+  <i class="fas fa-bars menu-icon" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu" role="button"></i>
+  <nav class="navbar" aria-label="Main navigation">
+    <ul class="nav-links" id="menu">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education & Certificates</a></li>
+      <li><a href="#projects">Projects & Experience</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+</div>
 </header>
 
 <div class="image-zoom-overlay" id="imageZoomOverlay">
