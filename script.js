@@ -90,3 +90,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+function showModal(imgSrc) {
+            document.getElementById("modalImg").src = imgSrc;
+            document.getElementById("imgModal").style.display = "block";
+            document.querySelector(".modal-overlay").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("imgModal").style.display = "none";
+            document.querySelector(".modal-overlay").style.display = "none";
+        }
+
+        document.querySelectorAll(".images img").forEach(img => {
+            img.addEventListener("click", () => showModal(img.src));
+        });
