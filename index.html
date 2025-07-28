@@ -8,24 +8,25 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<header>
-  <div class="navbar">
-    <div class="profile-img-container">
-      <img src="Docs&image/profile.png" alt="Profile Image" id="profileImg" class="profile-image">
-      <h1>Likho Pikelela</h1>
-    </div>
-    <i class="fas fa-bars menu-icon" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle menu" role="button"></i>
-    <nav class="navbar" aria-label="Main navigation">
-      <ul class="nav-links" id="menu">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education & Certificates</a></li>
-        <li><a href="#projects">Projects & Experience</a></li>
-        <li><a href="#contact">Contact Me</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <header class="navbar-container">
+        <div class="navbar-left">
+            <img src="Docs&image/profile.png" alt="Pikelela" class="profile-image">
+            <div class="navbar-info">
+                <h1>Likho Pikelela</h1>
+                <div class="navbar-subtitle">Cybersecurity Enthusiast & AI Developer</div>
+            </div>
+        </div>
+
+        <nav class="dropdown">
+            <button class="dropdown-btn">Menu ▼</button>
+            <div class="dropdown-content">
+                <a href="#about">About Me</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+            </div>
+        </nav>
+    </header> 
 
 <div class="image-zoom-overlay" id="imageZoomOverlay">
   <img id="zoomedImage" src="" alt="Zoomed Image">
@@ -56,107 +57,98 @@
      practical skills and contribute meaningfully to the cybersecurity community.</p>
 </div>
 
-<div class="section" id="skills">
-  <h2>Skills</h2>
-  <ul>
-    <li>Cybersecurity Fundamentals & Digital Forensics</li>
-    <li>HTML, CSS, JavaScript, Python</li>
-    <li>UI/UX Design (Figma)</li>
-    <li>Chatbot Development</li>
-    <li>Teachable Machine Image Classification</li>
-    <li>Graphic Design & Branding Basics</li>
-  </ul>
-</div>
+    <section class="section" id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-item">Cybersecurity Fundamentals & Digital Forensics</div>
+            <div class="skill-item">HTML, CSS, JavaScript, Python</div>
+            <div class="skill-item">UI/UX Design (Figma)</div>
+            <div class="skill-item">Chatbot Development</div>
+            <div class="skill-item">Teachable Machine Image Classification</div>
+            <div class="skill-item">Graphic Design & Branding Basics</div>
+        </div>
+    </section>
 
-<div class="section" id="education">
-  <h2>Education & Certificates</h2>
-
-  <div class="certificate">
-    <p>National Senior Certificate (Grade 12)</p>
-  </div>
-  <div class="certificate">
-    <p>Cybersecurity Fundamentals – Digital Regenesys (2023)</p>
-  </div>
-  <div class="certificate">
-    <p>Cybersecurity Defence Toolbox – Digital Regenesys (2023)</p>
-  </div>
-  <div class="certificate">
-    <p>Incident Response & Digital Forensics Internship – Center for Cyber Security Studies and Research (2023–2024)</p>
-  </div>
-  <div class="certificate">
-    <p>CAPACITI AI Bootcamp – AI Basics, Ethics, and Projects (2025)</p>
-  </div>
-</div>
+    <div class="section" id="education">
+        <h2>Education & Certificates</h2>
+        <div class="certificates-grid">
+            <div class="certificate">
+                <p>National Senior Certificate (Grade 12)</p>
+            </div>
+            <div class="certificate">
+                <p>Cybersecurity Fundamentals – Digital Regenesys (2023)</p>
+            </div>
+            <div class="certificate">
+                <p>Cybersecurity Defence Toolbox – Digital Regenesys (2023)</p>
+            </div>
+            <div class="certificate">
+                <p>Incident Response & Digital Forensics Internship – Center for Cyber Security Studies and Research (2023–2024)</p>
+            </div>
+            <div class="certificate">
+                <p>CAPACITI AI Bootcamp – AI Basics, Ethics, and Projects (2025)</p>
+            </div>
+        </div>
+    </div>
 
 <div class="section" id="cert">
   <a href="accomplishments/certificates.html" class="cert-btn">View My Certificates</a>
 </div>
 
 <div class="section" id="projects">
-  <h2>Projects & Experience</h2>
-  <div class="project" data-aos="fade-up">
-    <h3>AI Basic Concepts Chatbot</h3>
-    <p>Explains AI/ML/Deep Learning in simple language for beginners. Built with HTML, JavaScript, and animations.</p>
-    <p><a href="https://skambi441.github.io/ChatBot/" target="_blank" rel="noopener noreferrer">Visit Chatbot</a></p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>Portfolio Website</h3>
-    <p>A professional, fully custom-coded portfolio showcasing my journey, skills, and projects.</p>
-    <p><a href="https://pikelelalikho.github.io/net_app/" target="_blank" rel="noopener noreferrer">Visit Portfolio</a></p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>Figma Prototype (Image Upload Interface)</h3>
-    <p>A UI design inspired by postimages.org, allowing image uploads with custom styling and layout.</p>
-    <p><a href="https://skambi441.github.io/figma_prototype/" target="_blank" rel="noopener noreferrer">View Figma Prototype</a></p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>Teachable Machine – Cup Detector</h3>
-    <p>Image classification model that identifies cups and ignores people. Trained using Google's Teachable Machine.</p>
-    <p><a href="https://pikelelalikho.github.io/teachable_machine/" target="_blank" rel="noopener noreferrer">Test the Model</a></p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>Content Generator Tool</h3>
-    <p>The code generator takes a user prompt (like "basic HTML page") and returns a matching code template (HTML, CSS, JS, or Python). It helps users quickly get starter code without writing from scratch.</p>
-    <p><a href="https://pikelela.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">Try Code Generator</a></p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>AI Resume Generator</h3>
-    <p>A simple AI-powered resume generator that creates a clean, professional resume based on your input. Users can generate, preview, and download resumes easily to support their job applications.</p>
-    <p><a href="https://resume-generator-svqj.onrender.com/" target="_blank" rel="noopener noreferrer">Try the Resume Generator</a></p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>Sentiment Analysis Dashboard</h3>
-    <p>An interactive sentiment analysis tool that analyzes text input and visually displays sentiment trends using a Hugging Face model. Built to help understand user emotions in text data for research or content review.</p>
-    <p><a href="https://pikelela-sentiment-dashboard.hf.space/" target="_blank" rel="noopener noreferrer">Try Sentiment Dashboard</a></p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>Bias Audit Report</h3>
-    <p>
-      A responsible AI project using IBM Fairness 360 and Google What-If Tool to conduct a bias audit and visualize findings, reflecting ethical awareness in AI development.
-    </p>
-    <p>
-      <a href="#" target="_blank" rel="noopener noreferrer">View Project (Coming Soon)</a>
-    </p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>End-to-End AI Solution (Capstone)</h3>
-    <p>
-      A complete AI tool built during the CAPACITI Bootcamp Capstone Sprint, applying everything learned to solve a real-world problem using AI APIs such as OpenAI and Whisper.
-    </p>
-    <p>
-      <a href="#" target="_blank" rel="noopener noreferrer">View Capstone (Coming Soon)</a>
-    </p>
-  </div>
-  <div class="project" data-aos="fade-up">
-    <h3>Capstone Showcase & Portfolio</h3>
-    <p>
-      Final showcase of all bootcamp projects including the chatbot, code generator, and capstone, prepared with a live or recorded demo for career portfolio and freelance readiness.
-    </p>
-    <p>
-      <a href="#" target="_blank" rel="noopener noreferrer">View Showcase (Coming Soon)</a>
-    </p>
-  </div>
-</div>
+        <h2>Projects & Experience</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <h3>AI Basic Concepts Chatbot</h3>
+                <p>Explains AI/ML/Deep Learning in simple language for beginners. Built with HTML, JavaScript, and animations.</p>
+                <a href="https://skambi441.github.io/ChatBot/" target="_blank" rel="noopener noreferrer">Visit Chatbot</a>
+            </div>
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>A professional, fully custom-coded portfolio showcasing my journey, skills, and projects.</p>
+                <a href="https://pikelelalikho.github.io/net_app/" target="_blank" rel="noopener noreferrer">Visit Portfolio</a>
+            </div>
+            <div class="project">
+                <h3>Figma Prototype (Image Upload Interface)</h3>
+                <p>A UI design inspired by postimages.org, allowing image uploads with custom styling and layout.</p>
+                <a href="https://skambi441.github.io/figma_prototype/" target="_blank" rel="noopener noreferrer">View Figma Prototype</a>
+            </div>
+            <div class="project">
+                <h3>Teachable Machine – Cup Detector</h3>
+                <p>Image classification model that identifies cups and ignores people. Trained using Google's Teachable Machine.</p>
+                <a href="https://pikelelalikho.github.io/teachable_machine/" target="_blank" rel="noopener noreferrer">Test the Model</a>
+            </div>
+            <div class="project">
+                <h3>Content Generator Tool</h3>
+                <p>The code generator takes a user prompt (like "basic HTML page") and returns a matching code template (HTML, CSS, JS, or Python). It helps users quickly get starter code without writing from scratch.</p>
+                <a href="https://pikelela.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">Try Code Generator</a>
+            </div>
+            <div class="project">
+                <h3>AI Resume Generator</h3>
+                <p>A simple AI-powered resume generator that creates a clean, professional resume based on your input. Users can generate, preview, and download resumes easily to support their job applications.</p>
+                <a href="https://resume-generator-svqj.onrender.com/" target="_blank" rel="noopener noreferrer">Try the Resume Generator</a>
+            </div>
+            <div class="project">
+                <h3>Sentiment Analysis Dashboard</h3>
+                <p>An interactive sentiment analysis tool that analyzes text input and visually displays sentiment trends using a Hugging Face model. Built to help understand user emotions in text data for research or content review.</p>
+                <a href="https://pikelela-sentiment-dashboard.hf.space/" target="_blank" rel="noopener noreferrer">Try Sentiment Dashboard</a>
+            </div>
+            <div class="project">
+                <h3>Bias Audit Report</h3>
+                <p>A responsible AI project using IBM Fairness 360 and Google What-If Tool to conduct a bias audit and visualize findings, reflecting ethical awareness in AI development.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">View Project (Coming Soon)</a>
+            </div>
+            <div class="project">
+                <h3>End-to-End AI Solution (Capstone)</h3>
+                <p>A complete AI tool built during the CAPACITI Bootcamp Capstone Sprint, applying everything learned to solve a real-world problem using AI APIs such as OpenAI and Whisper.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">View Capstone (Coming Soon)</a>
+            </div>
+            <div class="project">
+                <h3>Capstone Showcase & Portfolio</h3>
+                <p>Final showcase of all bootcamp projects including the chatbot, code generator, and capstone, prepared with a live or recorded demo for career portfolio and freelance readiness.</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">View Showcase (Coming Soon)</a>
+            </div>
+        </div>
+    </div>
 
 <div class="resume-section">
   <h2>View or Download My Resume</h2>
@@ -1058,6 +1050,37 @@ document.querySelectorAll('nav a').forEach(anchor => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtn = document.querySelector('.dropdown-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            
+            dropdownBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                dropdownContent.style.display = 'none';
+            });
+            
+            // Prevent dropdown from closing when clicking inside it
+            dropdownContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        dropdownBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (dropdownContent.style.display === 'block') {
+              dropdownContent.style.display = 'none';
+              dropdownBtn.textContent = 'Menu ▼';
+          } else {
+              dropdownContent.style.display = 'block';
+              dropdownBtn.textContent = 'Menu ▲';
+          }
+      });
     </script>
 
 </body>
