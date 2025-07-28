@@ -357,13 +357,14 @@
   font-weight: 500;
   transition: background-color 0.3s, transform 0.2s;
 }
-#cert {
-        display: flex;
-        justify-content: center;
-    }
 .cert-btn:hover {
   background-color: var(--brand-color-dark);
   transform: scale(1.05);
+}
+.cert-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .certificate-gallery {
