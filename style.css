@@ -349,6 +349,8 @@
     }
 .cert-btn {
   display: inline-block;
+  justify-content: center;
+  align-items: center;
   background-color: var(--brand-color);
   color: white;
   padding: 10px 20px;
@@ -360,11 +362,6 @@
 .cert-btn:hover {
   background-color: var(--brand-color-dark);
   transform: scale(1.05);
-}
-.cert-btn-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .certificate-gallery {
