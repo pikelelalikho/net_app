@@ -347,6 +347,20 @@
         color: var(--text-color);
         margin: 0;
     }
+.cert-btn {
+        display: inline-block;
+        background-color: var(--brand-color);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    .cert-btn:hover {
+        background-color: var(--brand-color-dark);
+        transform: scale(1.05);
+    }
 
     .link-placeholder {
         color: #666;
@@ -382,10 +396,12 @@
     }
 
     input, textarea {
+        background-color: rgba(0,0,0,0.8);
         padding: 0.75rem;
+        color: var(--brand-color);
         font-size: 1rem;
         border: 1px solid var(--border-gray);
-        border-radius: 5px;
+        border-radius: 5px;;
     }
 
     button {
@@ -405,11 +421,11 @@
     }
 
     footer {
-        background-color: var(--background-color);
+        background-color: #4e0404;
         color: var(--text-color);
         text-align: center;
         padding: 1rem;
-        border-top: 1px solid #eaeaea;
+        border-top: 1px solid #4e0404;
     }
 
     .social-icons a {
