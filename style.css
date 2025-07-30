@@ -133,7 +133,28 @@ img {
   opacity: 1;
   transition: opacity 0.4s ease;
 }
+/* Smooth fade + slide effect */
+#nav-section {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
+/* When scrolling down */
+.navbar-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+}
+
+/* When scrolling up */
+.navbar-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
 /* Dropdown Menu */
 .dropdown {
