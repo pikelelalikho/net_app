@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
             zoomOverlay.style.display = 'none';
         });
 
-        // Close zoom overlay on Escape key
         zoomOverlay.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 zoomOverlay.style.display = 'none';
@@ -144,10 +143,8 @@ document.addEventListener('DOMContentLoaded', function () {
             modalOverlay.style.display = "none";
         };
 
-        // Close modal on clicking overlay
         modalOverlay.addEventListener('click', closeModal);
 
-        // Close modal on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && imgModal.style.display === 'block') {
                 closeModal();
@@ -155,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ===== NAVBAR FADE ON SCROLL DIRECTION =====
+    // ===== NAVBAR FADE ON VERTICAL SCROLL DIRECTION =====
     const navbar = document.querySelector('nav');
     let lastScrollTop = 0;
 
@@ -176,28 +173,27 @@ document.addEventListener('DOMContentLoaded', function () {
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         }, 100));
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('.navbar-container');
+    // ===== HEADER FADE & SLIDE FROM RIGHT ON HORIZONTAL SCROLL =====
+    const header = document.querySelector('.navbar-container');
 
-  if (!header) return;
+    if (header) {
+        // Initially hidden and shifted right
+        header.style.opacity = 0;
+        header.style.transform = 'translateX(20px)';
+        header.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
 
-  // Initially hidden and shifted right
-  header.style.opacity = 0;
-  header.style.transform = 'translateX(20px)';
-  header.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        const onHorizontalScroll = throttle(() => {
+            if (window.scrollX > 50) { // Adjust threshold as needed
+                header.style.opacity = 1;
+                header.style.transform = 'translateX(0)';
+            } else {
+                header.style.opacity = 0;
+                header.style.transform = 'translateX(20px)';
+            }
+        }, 100);
 
-  function onScroll() {
-    if (window.scrollX > 50) { // Adjust threshold as needed
-      header.style.opacity = 1;
-      header.style.transform = 'translateX(0)';
-    } else {
-      header.style.opacity = 0;
-      header.style.transform = 'translateX(20px)';
+        window.addEventListener('scroll', onHorizontalScroll);
+        onHorizontalScroll(); // trigger on load
     }
-  }
-
-  window.addEventListener('scroll', onScroll);
-  onScroll(); // trigger on load
 });
