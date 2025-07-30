@@ -105,3 +105,24 @@ function showModal(imgSrc) {
         document.querySelectorAll(".images img").forEach(img => {
             img.addEventListener("click", () => showModal(img.src));
         });
+
+
+  const navbar = document.querySelector('nav'); // Adjust selector if needed
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      // Scrolling down
+      navbar.classList.add('navbar-hidden');
+      navbar.classList.remove('navbar-visible');
+    } else {
+      // Scrolling up
+      navbar.classList.add('navbar-visible');
+      navbar.classList.remove('navbar-hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile
+  });
+
