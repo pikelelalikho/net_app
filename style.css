@@ -58,24 +58,34 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: none;
-    backdrop-filter: blur(20px);
     padding: 1rem 2rem;
-    box-shadow: var(--shadow-light);
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-light);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     margin-bottom: 2rem;
+    transition: opacity 0.5s ease-in-out;
 }
 
+/* Fade states for navbar */
+.navbar-hidden {
+    opacity: 0.2;
+}
+
+.navbar-visible {
+    opacity: 1;
+}
+
+/* Left section with image and info */
 .navbar-left {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Profile Section */
 .profile-img-container {
     display: flex;
     align-items: center;
@@ -88,10 +98,8 @@ img {
     height: fit-content;
     border-radius: 50%;
     object-fit: cover;
-    border: none;
-    transition: var(--transition);
     cursor: pointer;
-    flex-shrink: 0;
+    transition: transform var(--transition), opacity 0.5s ease-in-out;
 }
 
 .profile-image:hover {
@@ -122,29 +130,8 @@ img {
     font-size: 0.9rem;
     font-weight: 500;
 }
-.navbar-container {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: opacity 0.5s ease-in-out;
-  backdrop-filter: blur(20px);
-  background: none; /* or your background color */
-}
-.profile-image {
-  transition: opacity 0.5s ease-in-out;
-}
 
-
-/* Navbar fade-out effect */
-.navbar-hidden {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.navbar-visible {
-  opacity: 1;
-  transition: opacity 0.4s ease;
-}
+/* Dropdown Menu */
 .dropdown-btn {
     background: var(--brand-color);
     color: #131111;
@@ -193,6 +180,7 @@ img {
     background: var(--brand-color);
     color: rgb(0, 0, 0);
 }
+
 
 /* ==========================================================================
    MAIN CONTENT SECTIONS
