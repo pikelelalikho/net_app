@@ -67,6 +67,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sections.forEach(section => observer.observe(section));
 
+    // ===== FADE NAVBAR ON SCROLL =====
+    const navbar = document.querySelector('nav');
+    let lastScrollTop = 0;
+
+    // Set initial state
+    navbar.classList.add('navbar-visible');
+
+    window.addEventListener('scroll', throttle(() => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            navbar.classList.add('navbar-hidden');
+            navbar.classList.remove('navbar-visible');
+        } else {
+            // Scrolling up
+            navbar.classList.add('navbar-visible');
+            navbar.classList.remove('navbar-hidden');
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, 150));
+
     // ===== THROTTLE HELPER FUNCTION =====
     function throttle(func, limit) {
         let lastFunc;
@@ -91,38 +114,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// ===== MODAL IMAGE VIEWER =====
 function showModal(imgSrc) {
-            document.getElementById("modalImg").src = imgSrc;
-            document.getElementById("imgModal").style.display = "block";
-            document.querySelector(".modal-overlay").style.display = "block";
-        }
+    document.getElementById("modalImg").src = imgSrc;
+    document.getElementById("imgModal").style.display = "block";
+    document.querySelector(".modal-overlay").style.display = "block";
+}
 
-        function closeModal() {
-            document.getElementById("imgModal").style.display = "none";
-            document.querySelector(".modal-overlay").style.display = "none";
-        }
+function closeModal() {
+    document.getElementById("imgModal").style.display = "none";
+    document.querySelector(".modal-overlay").style.display = "none";
+}
 
-        document.querySelectorAll(".images img").forEach(img => {
-            img.addEventListener("click", () => showModal(img.src));
-        });
-
-
-  const navbar = document.querySelector('nav'); // Adjust selector if needed
-  let lastScrollTop = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > lastScrollTop) {
-      // Scrolling down
-      navbar.classList.add('navbar-hidden');
-      navbar.classList.remove('navbar-visible');
-    } else {
-      // Scrolling up
-      navbar.classList.add('navbar-visible');
-      navbar.classList.remove('navbar-hidden');
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile
-  });
-
+document.querySelectorAll(".images img").forEach(img => {
+    img.addEventListener("click", () => showModal(img.src));
+});
