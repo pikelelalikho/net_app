@@ -123,6 +123,18 @@ img {
     font-weight: 500;
 }
 
+/* Navbar fade-out effect */
+.navbar-hidden {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.navbar-visible {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+
 /* Dropdown Menu */
 .dropdown {
     position: relative;
