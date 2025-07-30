@@ -141,7 +141,16 @@ img {
   top: 0;
   width: 100%;
 }
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* When scrolling down */
 .navbar-hidden {
   opacity: 0;
