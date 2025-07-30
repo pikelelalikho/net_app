@@ -1,28 +1,66 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // ===== THROTTLE FUNCTION =====
+    function throttle(func, limit) {
+        let lastFunc;
+        let lastRan;
+        return function () {
+            const context = this;
+            const args = arguments;
+            if (!lastRan) {
+                func.apply(context, args);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(() => {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
+            }
+        };
+    }
+
     // ===== NAVIGATION MENU TOGGLE =====
     const menuToggle = document.getElementById("menuToggle");
     const menu = document.getElementById("menu");
 
     const toggleMenu = () => {
+        if (!menu) return;
         menu.classList.toggle("show");
+        if (menuToggle) {
+            const expanded = menu.classList.contains("show");
+            menuToggle.setAttribute('aria-expanded', expanded);
+        }
     };
 
     if (menuToggle && menu) {
+        menuToggle.setAttribute('aria-controls', 'menu');
+        menuToggle.setAttribute('aria-expanded', 'false');
+
         menuToggle.addEventListener('click', toggleMenu);
         menuToggle.addEventListener('keypress', e => {
-            if (e.key === 'Enter') toggleMenu();
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
         });
     }
 
     // ===== AUTO-HIDE MENU NEAR PAGE BOTTOM =====
     window.addEventListener("scroll", throttle(() => {
+        if (!menu) return;
+
         const scrollHeight = document.documentElement.scrollHeight;
         const scrollTop = window.scrollY;
         const clientHeight = window.innerHeight;
         const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
 
-        if (distanceFromBottom < 100 && menu) {
+        if (distanceFromBottom < 100) {
             menu.classList.remove("show");
+            if (menuToggle) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
         }
     }, 200));
 
@@ -35,10 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
         profileImg.addEventListener('click', () => {
             zoomedImage.src = profileImg.src;
             zoomOverlay.style.display = 'flex';
+            zoomOverlay.setAttribute('tabindex', '-1');
+            zoomOverlay.focus();
         });
 
         zoomOverlay.addEventListener('click', () => {
             zoomOverlay.style.display = 'none';
+        });
+
+        // Close zoom overlay on Escape key
+        zoomOverlay.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                zoomOverlay.style.display = 'none';
+            }
         });
     }
 
@@ -73,30 +120,40 @@ document.addEventListener('DOMContentLoaded', function () {
     sections.forEach(section => observer.observe(section));
 
     // ===== IMAGE MODAL FUNCTIONALITY =====
-    document.querySelectorAll(".images img").forEach(img => {
-        img.addEventListener("click", () => {
-            showModal(img.src);
-        });
-    });
-
     const modalOverlay = document.querySelector(".modal-overlay");
     const modalImg = document.getElementById("modalImg");
     const imgModal = document.getElementById("imgModal");
 
-    window.showModal = function (imgSrc) {
-        if (modalImg && imgModal && modalOverlay) {
+    if (modalOverlay && modalImg && imgModal) {
+        document.querySelectorAll(".images img").forEach(img => {
+            img.addEventListener("click", () => {
+                showModal(img.src);
+            });
+        });
+
+        window.showModal = function (imgSrc) {
             modalImg.src = imgSrc;
             imgModal.style.display = "block";
             modalOverlay.style.display = "block";
-        }
-    };
+            modalOverlay.setAttribute('tabindex', '-1');
+            modalOverlay.focus();
+        };
 
-    window.closeModal = function () {
-        if (imgModal && modalOverlay) {
+        window.closeModal = function () {
             imgModal.style.display = "none";
             modalOverlay.style.display = "none";
-        }
-    };
+        };
+
+        // Close modal on clicking overlay
+        modalOverlay.addEventListener('click', closeModal);
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imgModal.style.display === 'block') {
+                closeModal();
+            }
+        });
+    }
 
     // ===== NAVBAR FADE ON SCROLL DIRECTION =====
     const navbar = document.querySelector('nav');
@@ -118,27 +175,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         }, 100));
-    }
-
-    // ===== THROTTLE FUNCTION =====
-    function throttle(func, limit) {
-        let lastFunc;
-        let lastRan;
-        return function () {
-            const context = this;
-            const args = arguments;
-            if (!lastRan) {
-                func.apply(context, args);
-                lastRan = Date.now();
-            } else {
-                clearTimeout(lastFunc);
-                lastFunc = setTimeout(() => {
-                    if ((Date.now() - lastRan) >= limit) {
-                        func.apply(context, args);
-                        lastRan = Date.now();
-                    }
-                }, limit - (Date.now() - lastRan));
-            }
-        };
     }
 });
