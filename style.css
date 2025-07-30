@@ -168,6 +168,11 @@ img {
 /* Dropdown Menu */
 .dropdown {
     position: relative;
+}.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .dropdown-btn {
