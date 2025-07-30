@@ -177,3 +177,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 100));
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.navbar-container');
+
+  if (!header) return;
+
+  // Initially hidden and shifted right
+  header.style.opacity = 0;
+  header.style.transform = 'translateX(20px)';
+  header.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+
+  function onScroll() {
+    if (window.scrollX > 50) { // Adjust threshold as needed
+      header.style.opacity = 1;
+      header.style.transform = 'translateX(0)';
+    } else {
+      header.style.opacity = 0;
+      header.style.transform = 'translateX(20px)';
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // trigger on load
+});
