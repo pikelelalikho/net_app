@@ -98,23 +98,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // ===== HIDE/SHOW NAVBAR ON SCROLL DIRECTION =====
+    // ===== NAVBAR FADE ON SCROLL DIRECTION =====
     const navbar = document.querySelector('nav');
     let lastScrollTop = 0;
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        if (navbar) {
-            if (currentScroll > lastScrollTop) {
+    if (navbar) {
+        navbar.classList.add('navbar-visible');
+
+        window.addEventListener('scroll', throttle(() => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop && currentScroll > 100) {
                 navbar.classList.add('navbar-hidden');
                 navbar.classList.remove('navbar-visible');
             } else {
                 navbar.classList.add('navbar-visible');
                 navbar.classList.remove('navbar-hidden');
             }
-        }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    });
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        }, 100));
+    }
 
     // ===== THROTTLE FUNCTION =====
     function throttle(func, limit) {
