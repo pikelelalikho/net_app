@@ -52,7 +52,21 @@ footer {
 button:hover {
     background-color: var(--brand-color-dark);
 }
+.section {
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+    padding: 2.5rem;
+    background: none;
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition);
+}
 
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
 
 .social-icons a {
     margin: 0 10px;
@@ -105,9 +119,9 @@ button:hover {
         </div>
         
     </div>
-   <div class="button">
+   <section>
        <a href="https://pikelelalikho.github.io/net_app/index.html" class="cert-btn">Back</a>
-   </div>
+   </section>
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Likho Pikelela. All rights reserved.</p>
