@@ -180,7 +180,17 @@ img {
     background: var(--brand-color);
     color: rgb(0, 0, 0);
 }
+ .p {
+    color:  var(--brand-color);
+ }
 
+.images p {
+    color:  var(--brand-color);
+}
+
+.section p {
+   color:  var(--brand-color);
+}
 
 /* ==========================================================================
    MAIN CONTENT SECTIONS
