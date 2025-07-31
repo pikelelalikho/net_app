@@ -419,7 +419,7 @@ img {
 
 .images p {
     margin-top: 0.5rem;
-    color: #eee;
+    color: var(--brand-color-dark);
     font-size: 0.9rem;
 }
 
