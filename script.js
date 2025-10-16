@@ -43,21 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ===== AUTO-CLOSE MENU NEAR PAGE BOTTOM =====
-    window.addEventListener("scroll", throttle(() => {
-        if (!menu) return;
-        const scrollHeight = document.documentElement.scrollHeight;
-        const scrollTop = window.scrollY;
-        const clientHeight = window.innerHeight;
-        const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
-
-        if (distanceFromBottom < 100) {
-            menu.classList.remove("show");
-            menuToggle?.setAttribute('aria-expanded', 'false');
-        }
-    }, 200));
-
-    // ===== PROFILE IMAGE ZOOM =====
+        // ===== PROFILE IMAGE ZOOM =====
     const profileImg = document.getElementById('profileImg');
     const zoomOverlay = document.getElementById('imageZoomOverlay');
     const zoomedImage = document.getElementById('zoomedImage');
@@ -80,6 +66,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // ===== AUTO-CLOSE MENU NEAR PAGE BOTTOM =====
+    window.addEventListener("scroll", throttle(() => {
+        if (!menu) return;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.scrollY;
+        const clientHeight = window.innerHeight;
+        const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
+
+        if (distanceFromBottom < 100) {
+            menu.classList.remove("show");
+            menuToggle?.setAttribute('aria-expanded', 'false');
+        }
+    }, 200));
+
 
     // ===== ACTIVE LINK HIGHLIGHT ON SCROLL =====
     const sections = document.querySelectorAll('section, .section');
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const imgModal = document.getElementById("imgModal");
 
     if (modalOverlay && modalImg && imgModal) {
-        document.querySelectorAll(".images img").forEach(img => {
+        document.querySelectorAll(".image img").forEach(img => {
             img.addEventListener("click", () => {
                 showModal(img.src);
             });
