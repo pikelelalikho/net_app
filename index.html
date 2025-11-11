@@ -6,14 +6,15 @@
   <title>Likho Pikelela Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="about.css"/>
 </head>
 <body>
     <header class="navbar-container">
         <div class="navbar-left">
             <img src="Docs&image/profile.png" alt="Pikelela" class="profile-image">
             <div class="navbar-info">
-                <div class="navbar-subtitle">Hi there👋🏽😃 I'm</div>
-              <h1>Likho Pikelela</h1>
+                <div class="navbar-subtitle">Hi there👋🏽😃 I'm</div><br>
+              <h1>Likho Pikelela</h1><br>
                 <div class="navbar-subtitle">Cybersecurity Enthusiast</div>
             </div>
         </div>
@@ -49,21 +50,12 @@
         <img id="modalImg" src="" alt="Zoomed Certificate">
     </div>
 
-<div class="section" id="about">
-  <h2>About Me</h2>
-  <p>I began my journey by earning my National Senior Certificate, followed by completing Cybersecurity Fundamentals and
-     Cybersecurity Defence Toolbox training with Digital Regenesys, where I gained a strong foundation in both
-      theoretical and practical aspects of cybersecurity. It was during this time I was introduced to coding,
-       learning that understanding scripts and reading lines of code would be essential for effective auditing and 
-       even developing custom cybersecurity tools in the future. This sparked my interest in programming, leading me
-        to teach myself web development alongside my cybersecurity studies. I further strengthened my practical skills 
-        through an intensive internship in Incident Response and Digital Forensics at the Center for Cyber Security Studies 
-        and Research, gaining hands-on experience in network analysis, vulnerability assessments, and real-world threat response.
-         To expand my AI and automation understanding, I joined the CAPACITI AI Bootcamp, aligning AI concepts with cybersecurity
-         problem-solving. As I continue growing in this field, I am committed to earning the Certified Ethical Hacker (CEH) 
-         certification to deepen my
-     practical skills and contribute meaningfully to the cybersecurity community.</p>
-</div>
+ <section class="section">
+    <h2>About Me</h2>
+    <div class="typing-container">
+      <span class="typing-text" id="typing-text"></span><span class="cursor"></span>
+    </div>
+  </section>
 
   <section class="section" id="skills">
     <h2>Skills & Expertise</h2>
@@ -457,6 +449,7 @@
 </div>
 <script src="script.js"></script>
 <script src="bades.js"></script>
+<script src="about.js"></script>
 <script>
     // Chat toggle functionality
     const chatToggle = document.getElementById('chatToggle');
@@ -1240,6 +1233,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
 
 
